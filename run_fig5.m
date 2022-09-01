@@ -43,7 +43,8 @@ y = max_b0*gaussmf(x,[g1 g2]);
 y_2d= (y'*y)./max(y(:));
 df_start = round(b0_bump_start*npos);
 df_2d = zeros(npos,npos);
-df_2d(df_start:df_start+numel(y)-1,round(end/2-numel(y)/2):round(end/2+numel(y)/2-1)) = y_2d;
+df_2d_dim = size(df_2d, 2);
+df_2d(df_start:df_start+numel(y)-1,round(df_2d_dim/2-numel(y)/2):round(df_2d_dim/2+numel(y)/2-1)) = y_2d;
 df_2d = flipud(df_2d);
 
 
